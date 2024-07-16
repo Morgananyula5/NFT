@@ -18,9 +18,19 @@ function shuffle(array) {
 
 function createCard(card) {
     const div = document.createElement('div');
+    const front = document.createElement('div');
+    const back = document.createElement('div');
+
     div.classList.add('card');
+    front.classList.add('front');
+    back.classList.add('back');
+
     div.dataset.card = card;
-    div.textContent = card;
+    back.textContent = card;
+
+    div.appendChild(front);
+    div.appendChild(back);
+
     div.addEventListener('click', flipCard);
     document.querySelector('.game-container').appendChild(div);
 }
